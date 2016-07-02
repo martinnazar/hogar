@@ -1,0 +1,55 @@
+<div layout="column" ng-init="takeExam()">
+    <md-content class="container container-sm content-ebooks content-test" layout-ms="column" layout-wrap layout="row">
+        <div layout="column" layout-align="start center" flex="100" class="layout-align-start-center layout-column">
+        	<md-card style="width: 100%">
+                <md-card-content>
+                	<div class="layout-wrap layout-book" layout="row" flex="100">
+            			<div class="layout-wrap" layout="row" flex="100">
+            		        <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="10" flex="10" class="content-book-image">
+            		            <img src="{{ exam.book.cover }}"/>
+            		        </div>
+            		        <div flex></div>
+            		        <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="80" flex="80" class="content-book-detail">
+            		            <span class="dificult">
+            		                <small>Dificultad</small>
+            		                <span>{{ exam.book.dificulty }}</span>
+            		            </span>
+            		            <h1>{{ exam.book.title }}</h1>
+            		            <a href="#" class="author-name">{{ exam.book.author }}</a>
+            		        </div>
+            		    </div>
+                    </div>
+                    <div class="layout-wrap content-questions" layout="row" flex="100">
+                    	<div flex></div>
+                    	<div flex="90">
+                    		<form>
+                    			<div class="questions" ng-repeat="question in exam.questions | limitTo:10">
+	                    		    <h4>{{ question.question }}</h4>
+	                    		    <md-radio-group class="md-primary">
+	                    		      <md-radio-button value="Apple">{{ question.answer1 }}</md-radio-button>
+	                    		      <md-radio-button value="Banana">{{ question.answer2 }}</md-radio-button>
+	                    		      <md-radio-button value="Mango">{{ question.answer3 }}</md-radio-button>
+                                <md-radio-button value="Frutilla">{{ question.answer4 }}</md-radio-button>
+	                    		    </md-radio-group>
+                    		    </div>
+                    		    <div class="call-to-action">
+                    		    	<md-button flex="80" class="md-primary md-raised" ng-click="endExam(exam)">Finalizar exámen</md-button>
+                    		    </div>
+                    		</form>
+                    	</div>
+                    	<div flex></div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+    <footer>
+    	<div class="container">
+    		<ul class="footer-links">
+    			<li><a href="#">Terminos y condiciones</a> |</li>
+    			<li><a href="#">Preguntas frecuentes</a> |</li>
+    			<li><a href="#">Contacto</a></li>
+    		</ul>
+    	</div>
+    </footer>
+</div>

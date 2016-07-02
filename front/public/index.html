@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+
+        <header ng-controller="HeaderController" ng-if=header ng-init="getUserType()">
+          <!-- toolbar -->
+          <md-toolbar>
+            <div class="container">
+                <div layout="row" layout-wrap>
+                    <div flex="10">
+                        <div class="outer-align">
+                            <div class="inner-align">
+                                <h1 class="logo" ui-sref="catalog_index">Bivlios</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex></div>
+                    <div flex="40" class="content-search">
+                        <div class="outer-align">
+                            <div class="inner-align">
+                                <md-input-container md-no-float class="md-block">
+                                  <md-icon md-font-set="material-icons">search</md-icon>
+                                  <input ng-model="user.phone" type="text" placeholder="Buscar libros...">
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="30">
+                        <div layout="row" layout-wrap>
+                            <div flex></div>
+                            <div flex="60">
+                                <div class="outer-align">
+                                    <div class="inner-align">
+                                        <md-menu-bar id="user-menu" class="content-menu-bar">
+                                            <md-menu md-position-mode="left bottom" class="user-toolbar">
+                                                <md-button class="user-button" ng-click="$mdOpenMenu()" aria-label="User settings">
+                                                    <div layout="row" layout-align="space-between center">
+                                                        <div class="avatar-wrapper">
+                                                            <!--<img md-menu-align-target class="avatar" src="https://randomuser.me/api/portraits/men/6.jpg">-->
+                                                            <!--<div md-menu-align-target class="avatar">testing</div>-->
+                                                        </div>
+                                                        <!--<span class="username" hide-xs>{{ ::userInfo.name }}</span>-->
+                                                        <span class="username" hide-xs>testing</span>
+                                                        <md-icon md-font-set="material-icons" hide-xs>arrow_drop_down</md-icon>
+                                                    </div>
+                                                </md-button>
+
+                                                <md-menu-content width="3">
+                                                    <md-menu-item class="md-indent">
+                                                        <md-icon md-font-set="material-icons">person</md-icon>
+                                                        <md-button ng-show="userType=='Alumno'" ui-sref="customer_account">My Profile</md-button>
+                                                        <md-button ng-show="userType=='Docente'" ui-sref="customer_profe">My Profile</md-button>
+                                                    </md-menu-item>
+
+                                                    <md-menu-divider></md-menu-divider>
+
+                                                    <md-menu-item class="md-indent">
+                                                        <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+                                                        <md-button ng-click="logout()">Logout</md-button>
+                                                    </md-menu-item>
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </md-menu-bar>
+                                    </div>
+                                </div>
+                            </div>
+                            <div flex="10">
+                                <div class="outer-align">
+                                    <div class="inner-align">
+                                        <span>|</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div flex="10">
+                                <div class="outer-align">
+                                    <div class="inner-align">
+                                        <md-button class="md-icon-button" aria-label="More">
+                                            <md-icon md-font-set="material-icons">settings</md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </md-toolbar>
+        </header>
+        <div ui-view="header"></div>
+        <div class="content-app">
+            <div ui-view></div>
+        </div>
+        <script type="text/javascript" src="/js/vendor.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="/js/books.js"></script>
+    </body>
+</html>

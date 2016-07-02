@@ -1,0 +1,70 @@
+<div layout="column" ng-init="getExam()">
+    <md-content class="container container-sm content-ebooks content-test" layout-ms="column" layout-wrap layout="row">
+        <div layout="column" layout-align="start center" flex="100" class="layout-align-start-center layout-column">
+        	<md-card style="width: 100%">
+                <md-card-content>
+                	<div class="layout-wrap layout-book" layout="row" flex="100">
+            			<div class="layout-wrap no-padding" layout="row" flex="100">
+            		        <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="20" flex="20" class="content-book-image">
+            		            <img src="{{ examResult.book.cover }}" />
+            		        </div>
+            		        <div flex></div>
+            		        <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="50" flex="50" class="content-book-detail result">
+            		            <h1>{{ examResult.book.title }}</h1>
+            		            <a href="#" class="author-name">{{ examResult.book.author }}</a>
+            		            <!--
+                            <h2 ng-if="">Aprobado! <div class="circle-icon"><i class="material-icons">done</i></div></h2>
+                            <h2 ng-if="">Desaprobado! <div class="circle-icon incorrect"><i class="material-icons">clear</i></div></h2>
+                            -->
+                            <h2>Aprobado! <div class="circle-icon"><i class="material-icons">done</i></div></h2>
+                            <h2 ng-if="">Desaprobado! <div class="circle-icon incorrect"><i class="material-icons">clear</i></div></h2>
+            		        </div>
+            		        <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="30" flex="30" class="content-book-detail">
+            		        	<div class="pos-content-score">
+	            		        	<div class="content-score">
+		            		        	<svg width="120" height="120" class="chart">
+		        		        	    	<circle r="25" cx="60" cy="60" class="pie" style="stroke-dasharray: {{ circle }}, 158;"/>
+		        		        	    	<circle r="48" cx="60" cy="60" class="center-pie">
+		        		        	    	</circle>
+		        		        	  	</svg>
+		        		        	  	<span class="score">{{ examResult.percent }}%</span>
+	        		        	  	</div>
+        		        	  		<small>Porcentaje de respuestas correctas</small>
+								          </div>
+            		        </div>
+            		    </div>
+                    </div>
+                    <div class="layout-wrap content-questions" layout="row" flex="100">
+                    	<md-content flex="100">
+                	        <div class="content-body container container-sm">
+                	            <div class="header-contents">
+                	                <h3 class="md-title result-title"><span></span>Resultado del exámen</h3>
+                	            </div>
+                	        </div>
+                	    </md-content>
+                	    <div flex="5"></div>
+                	    <div flex="85" class="content-results">
+                	    	<!--<span class="result-text">{{ examResult.correctAnswers }}/{{ examResult.questions.length }} Respuestas contestadas correctamente</span>-->
+                        <span class="result-text">{{ examResult.correctAnswers }}/10 Respuestas contestadas correctamente</span>
+                	    	<ul class="results-items" ng-repeat="question in examResult.questions | limitTo:10">
+                	    		<li><strong>{{ ::question.question }}
+                            <div ng-if="question.isCorrect" class="circle-icon small"><i class="material-icons">done</i></div>
+                            <div ng-if="!question.isCorrect" class="circle-icon incorrect small"><i class="material-icons">clear</i></div>
+                          </strong></li>
+                	    	</ul>
+                	    </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+    <footer>
+    	<div class="container">
+    		<ul class="footer-links">
+    			<li><a href="#">Terminos y condiciones</a> |</li>
+    			<li><a href="#">Preguntas frecuentes</a> |</li>
+    			<li><a href="#">Contacto</a></li>
+    		</ul>
+    	</div>
+    </footer>
+</div>

@@ -1,0 +1,33 @@
+{
+  "name": "bivlio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.12.5",
+    "del": "^2.2.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-flatten": "^0.2.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-less": "~3.0.5",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "main-bower-files": "^2.13.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "~1.1.5",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.grupovi-da.biz:development/bivlio-front.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

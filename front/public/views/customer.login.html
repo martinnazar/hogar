@@ -1,0 +1,48 @@
+<div class="background-blue">
+  <div class="content-login" ng-cloak>
+    <div layout="column">
+      <div flex class="content-login-card">
+        <div flex class="header-register">
+          <h2><span class="logo-register">Bivlios</span></h2>
+        </div>
+        <div class="content-image-login">
+          <img src="/img/login.jpg" alt="">
+        </div>
+        <md-card class="card-login">
+          <form ng-submit="logon(userForm)" name="loginForm" novalidate>
+          <md-card-actions>
+            <div layout="row" layout-xs="column" layout-align="none start">
+              <div flex="100" flex-xs="100">
+                <md-input-container>
+                  <label>Usuario</label>
+                  <input name="user" ng-model="userForm.username" required>
+                  <div ng-messages="userForm.user.$error">
+                    <div ng-message="required">Campo requerido</div>
+                  </div>
+                </md-input-container>
+                <md-input-container>
+                  <label>Contraseña</label>
+                  <input name="password" ng-model="userForm.password" required>
+                  <div ng-messages="userForm.password.$error">
+                    <div ng-message="required">Campo requerido</div>
+                  </div>
+                </md-input-container>
+              </div>
+            </div>
+          </md-card-actions>
+        </form>
+          <div ng-show="errorForm">{{ errorForm }}</div>
+          <md-card-content>
+            <div class="bottom-sheet-demo inset" layout="column" layout-align="center" >
+              <md-button flex="50" class="md-primary md-raised"  type="submit" ng-click="logon(userForm)">Ingresar</md-button>
+              <div class="content-links-login" flex="100">
+                <a href="#" class="user-new">¿Eres nuevo?</a>
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+              </div>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<div layout="column" ng-init="account_teacher()">
+    <md-content class="container container-sm content-ebooks content-test" layout-ms="column" layout-wrap layout="row">
+        <div layout="column" layout-align="start center" flex="100" class="layout-align-start-center layout-column">
+            <md-card style="width: 100%">
+                <md-card-content>
+                    <div class="layout-wrap layout-book" layout="row" flex="100">
+                        <div class="layout-wrap no-padding" layout="row" flex="100">
+                            <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="20" flex="20" class="content-account-image">
+                                <div class="user-image">
+                                    <img src="https://randomuser.me/api/portraits/men/6.jpg" />
+                                    <!--<a href="#"><i class="material-icons">edit</i></a>-->
+                                </div>
+                            </div>
+                            <div flex></div>
+                            <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="50" flex="50" class="content-book-detail account">
+                                <h1>{{ user.name }} {{ user.family_name }} <!--<a href="#"><i class="material-icons">edit</i></a>--></h1>
+                                <p>{{ user.email }} <!--<a href="#"><i class="material-icons">edit</i></a>--></p>
+                                <a ui-sref="customer_changepassword" class="change-password"><i class="material-icons">lock</i> Cambiar contraseña</a>
+                            </div>
+                            <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="30" flex="30" class="content-book-detail"></div>
+                        </div>
+                    </div>
+                    <div class="layout-wrap content-tabs" layout="row" flex="100">
+                        <md-content flex="100">
+                            <md-tabs md-dynamic-height md-border-bottom>
+                                <md-tab label="Cursos 2015">
+                                    <md-content class="account-accordion">
+
+                                        <div class="accordion-lg"
+                                         data-ng-class="{'active' : toggleObject.coursosProfesor == $index}"
+                                         data-ng-click="toggleObject.coursosProfesor = $index"
+                                         ng-repeat="curso in cursos">
+                                            <div class="accordion-item">
+                                                <div class="accordion-title">
+                                                    <div class="outer-align">
+                                                        <div class="inner-align">
+                                                            <div class="column-left">
+                                                                <p class="title">{{ curso.curso }}- 6 Alumnos</p>
+                                                            </div>
+                                                            <div class="column-right">
+                                                                <a href="" class="toggle-expand" >
+                                                                  <i class="material-icons"></i>
+                                                                </a>
+                                                                <div class="column-right">
+                                                                    <div class="content-chart">
+                                                                        <div class="progress-bar">
+                                                                            <div class="percent green" style="width:calc({{ curso.percent }} - 4px)">
+                                                                                <span>{{ curso.percent }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-content">
+                                                    <!-- Arranca acordion interno -->
+                                                    <div class="accordion-lg inner"
+                                                      data-ng-class="{'active' : toggleObject.customers == $index}"
+                                                      data-ng-click="toggleObject.customers = $index"
+                                                      ng-repeat="customer in curso.customers">
+                                                        <div class="accordion-item">
+                                                            <div class="accordion-title">
+                                                                <div class="outer-align">
+                                                                    <div class="inner-align">
+                                                                        <div class="column-left">
+                                                                            <img src="https://randomuser.me/api/portraits/men/24.jpg" alt="" class="alumno">
+                                                                            <p class="title">{{ customer.name }} {{ customer.family_name }}</p>
+                                                                        </div>
+                                                                        <div class="column-right">
+                                                                            <a href="" class="toggle-expand"><i class="material-icons"></i></a>
+                                                                            <div class="content-chart">
+                                                                                <div class="progress-bar">
+                                                                                    <div class="percent green" style="width:calc({{ customer.percent }} - 4px)">
+                                                                                        <span>{{ customer.percent }}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-content exam-list">
+                                                                <div layout="row" layout-wrap>
+                                                                  <div flex="30" ng-repeat="exam in customer.exams">
+                                                                    <md-card>
+                                                                        <md-card-title>
+                                                                          <md-card-title-text>
+                                                                            <span class="dificult-exam">Dificultad {{ exam.dificulty }}</span>
+                                                                            <span class="title-book">{{ exam.title }}</span>
+                                                                            <span class="author">{{ exam.author }}</span>
+                                                                          </md-card-title-text>
+                                                                        </md-card-title>
+                                                                        <md-card-actions layout="row" layout-align="end center">
+                                                                          <div class="progress-bar">
+                                                                              <div class="percent green" style="width:calc({{ exam.percent }} - 4px)">
+                                                                                  <span>{{ exam.percent }}</span>
+                                                                              </div>
+                                                                          </div>
+                                                                        </md-card-actions>
+                                                                        <a href="#" class="view-exam">Ver examen</a>
+                                                                      </md-card>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Fin acordion interno -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </md-content>
+                                  </md-tab>
+                                <md-tab label="Cursos 2016">idem tab anterior. Nos vimos!</md-tab>
+                            </md-tabs>
+                        </md-content>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#">Terminos y condiciones</a> |</li>
+                <li><a href="#">Preguntas frecuentes</a> |</li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,220 @@
+<div layout="column" ng-init="getCatalog()">
+    <link rel="import" href="./views/header.html">
+    <md-content flex class="sub-header">
+        <div class="container container-sm">
+            <div>
+                <md-menu-bar layout-ms="column" layout-wrap layout="row" class="content-filters">
+                    <div flex="30" layout="column">
+                        <md-menu>
+                            <button ng-click="$mdOpenMenu()" class="filter-gender">Genero
+                                <md-icon md-font-set="material-icons">arrow_drop_down</md-icon>
+                            </button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-button>Terror</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Ciencia Ficción</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Romance</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Triller</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Suspenso</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Comic</md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                    <div flex></div>
+                    <div flex="30" layout="column">
+                        <md-menu>
+                            <button ng-click="$mdOpenMenu()" class="filter-gender">Autor
+                                <md-icon md-font-set="material-icons">arrow_drop_down</md-icon>
+                            </button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-button>Terror</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Ciencia Ficción</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Romance</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Triller</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Suspenso</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Comic</md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                    <div flex></div>
+                    <div flex="30" layout="column">
+                        <md-menu>
+                            <button ng-click="$mdOpenMenu()" class="filter-gender">Lexile
+                                <md-icon md-font-set="material-icons">arrow_drop_down</md-icon>
+                            </button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-button>Terror</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Ciencia Ficción</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Romance</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Triller</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Suspenso</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>Comic</md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </md-menu-bar>
+            </div>
+        </div>
+    </md-content>
+    <!-- be careful: nothing between md-toolbar and md-content -->
+    <md-content>
+        <div class="content-body container container-sm">
+            <div class="header-contents">
+                <h3 class="md-title"><span></span>Acción y aventura</h3>
+                <a href="#" class="md-button">Ver más</a>
+            </div>
+        </div>
+    </md-content>
+    <md-content class="container container-sm content-ebooks" layout-ms="column" layout-wrap layout="row">
+        <div flex-sm="25" flex-gt-xs="50" flex-md="25" flex-gt-md="25" flex="50" layout="column" ng-repeat="book in books track by $index">
+            <md-card class="ebooks">
+                <div class="outer-align">
+                    <div class="inner-align">
+                        <a href="/#/libro/{{ ::book.external_id }}">
+                            <img ng-src="{{ ::book.cover }}" class="md-card-image" alt="Washed Out">
+                        </a>
+                        <span class="dificult">
+                            <small>Dificultad</small>
+                            <span>{{ ::book.dificulty }}</span>
+                        </span>
+                    </div>
+                </div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-subhead">{{ ::book.genre }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>{{ ::book.title }}</p>
+                    <a href="#">{{ ::book.author }}</a>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <div flex="40">
+                        <a href="#" class="more-info">Más info</a>
+                    </div>
+                    <div flex></div>
+                    <div flex="55">
+                        <a ui-sref="exam_take({examId:book.exam_id})" class="test">Rendir examen</a>
+                    </div>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+
+    <md-content class="container container-sm content-button-more-in" layout-ms="column" layout="row">
+        <div flex></div>
+        <md-button flex="50" class="md-primary md-raised view-more">Ver más intereses</md-button>
+        <div flex></div>
+    </md-content>
+	<section class="pre-footer">
+		<md-content class="container container-sm" layout-ms="column" layout="row">
+	        <div class="header-contents">
+	            <h3 class="md-title"><span></span>Lexile categoría</h3>
+	            <a href="#" class="md-button">Ver más</a>
+	        </div>
+	    </md-content>
+	    <md-content class="container container-sm content-ebooks" layout-ms="column" layout-wrap layout="row">
+	        <div flex-sm="25" flex-gt-xs="50" flex-md="25" flex-gt-md="25" flex="50" layout="column">
+	            <md-card class="lexile">
+	                <md-card-content>
+	                	<div class="outer-align">
+	                	    <div class="inner-align">
+	                    		<a href="#">
+	                    			<span>Dificultad</span>
+	                    			<strong>300 - 900</strong>
+	                    		</a>
+	                    	</div>
+	                    </div>
+	                </md-card-content>
+	            </md-card>
+	        </div>
+	        <div flex-sm="25" flex-gt-xs="50" flex-md="25" flex-gt-md="25" flex="50" layout="column">
+	            <md-card class="lexile pair">
+	                <md-card-content>
+	                	<div class="outer-align">
+	                	    <div class="inner-align">
+	                    		<a href="#">
+	                    			<span>Dificultad</span>
+	                    			<strong>300 - 900</strong>
+	                    		</a>
+	                    	</div>
+	                    </div>
+	                </md-card-content>
+	            </md-card>
+	        </div>
+	        <div flex-sm="25" flex-gt-xs="50" flex-md="25" flex-gt-md="25" flex="50" layout="column">
+	            <md-card class="lexile">
+	                <md-card-content>
+	                	<div class="outer-align">
+	                	    <div class="inner-align">
+	                    		<a href="#">
+	                    			<span>Dificultad</span>
+	                    			<strong>300 - 900</strong>
+	                    		</a>
+	                    	</div>
+	                    </div>
+	                </md-card-content>
+	            </md-card>
+	        </div>
+	        <div flex-sm="25" flex-gt-xs="50" flex-md="25" flex-gt-md="25" flex="50" layout="column">
+	            <md-card class="lexile pair">
+	                <md-card-content>
+	                	<div class="outer-align">
+	                	    <div class="inner-align">
+	                    		<a href="#">
+	                    			<span>Dificultad</span>
+	                    			<strong>300 - 900</strong>
+	                    		</a>
+	                    	</div>
+	                    </div>
+	                </md-card-content>
+	            </md-card>
+	        </div>
+	    </md-content>
+	</section>
+
+    <footer>
+    	<div class="container">
+    		<ul class="footer-links">
+    			<li><a href="#">Terminos y condiciones</a> |</li>
+    			<li><a href="#">Preguntas frecuentes</a> |</li>
+    			<li><a href="#">Contacto</a></li>
+    		</ul>
+    	</div>
+    </footer>
+</div>

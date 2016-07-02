@@ -1,0 +1,136 @@
+<div layout="column" ng-init="account_student()">
+    <md-content class="container container-sm content-ebooks content-test" layout-ms="column" layout-wrap layout="row">
+        <div layout="column" layout-align="start center" flex="100" class="layout-align-start-center layout-column">
+            <md-card style="width: 100%">
+                <md-card-content>
+                    <div class="layout-wrap layout-book" layout="row" flex="100">
+                        <div class="layout-wrap no-padding" layout="row" flex="100">
+                            <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="20" flex="20" class="content-account-image">
+                                <div class="user-image">
+                                    <img src="https://randomuser.me/api/portraits/men/6.jpg" />
+                                    <!--<a href="#"><i class="material-icons">edit</i></a>-->
+                                </div>
+                            </div>
+                            <div flex></div>
+                            <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="50" flex="50" class="content-book-detail account">
+                                <h1>{{ user.name }} {{ user.family_name }} <!--<a href="#"><i class="material-icons">edit</i></a>--></h1>
+                                <p>{{ user.email }} <!--<a href="#"><i class="material-icons">edit</i></a>--></p>
+                                <p>Cursando <span>4° año</span>.</p>
+                                <p>Legajo: <span>344569458-m</span></p>
+                                <a ui-sref="customer_changepassword" class="change-password"><i class="material-icons">lock</i> Cambiar contraseña</a>
+                            </div>
+                            <div layout="column" flex-sm="50" flex-gt-xs="50" flex-md="50" flex-gt-md="30" flex="30" class="content-book-detail">
+                                <div class="pos-content-score">
+                                    <div class="content-score">
+                                        <svg width="120" height="120" class="chart">
+                                            <circle r="25" cx="60" cy="60" class="pie" style="stroke-dasharray: 118.5, 158;" />
+                                            <circle r="48" cx="60" cy="60" class="center-pie">
+                                            </circle>
+                                        </svg>
+                                        <span class="score">75%</span>
+                                    </div>
+                                    <small>Porcentaje de respuestas correctas</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-wrap content-tabs" layout="row" flex="100">
+                        <md-content flex="100">
+                            <md-tabs md-dynamic-height md-border-bottom>
+                                <md-tab label="Intereses">
+                                    <md-content class="account-accordion">
+                                        <h1 class="md-display-2">Libros rendidos</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                                        <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                                    </md-content>
+                                </md-tab>
+                                <md-tab label="Libros rendidos">
+                                    <md-content class="account-accordion">
+                                        <div class="accordion-lg"
+                                          data-ng-class="{'active' : toggleObject.coursosAlumno == $index}"
+                                          data-ng-click="toggleObject.coursosAlumno = $index"
+                                          ng-repeat="curso in micuenta">
+                                            <div class="accordion-item">
+                                                <div class="accordion-title">
+                                                    <div class="outer-align">
+                                                        <div class="inner-align">
+                                                            <div class="column-left">
+                                                                <p class="title">{{ curso.ano }} / {{ curso.curso }}° año</p>
+                                                            </div>
+                                                            <div class="column-right">
+                                                                <a href="" class="toggle-expand"><i class="material-icons"></i></a>
+                                                                <div class="content-chart">
+                                                                    <div class="text"><span>{{ curso.curso.length }}</span> libros rendidos</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-content">
+                                                    <!-- Arranca acordion interno -->
+                                                    <div class="accordion-lg inner"
+                                                      data-ng-class="{'active' : toggleObject.libros == $index}"
+                                                      data-ng-click="toggleObject.libros = $index"
+                                                      ng-repeat="libro in curso.libros">
+                                                        <div class="accordion-item">
+                                                            <div class="accordion-title">
+                                                                <div class="outer-align">
+                                                                    <div class="inner-align">
+                                                                        <div class="column-left">
+                                                                            <p class="title">{{ libro.title }}</p>
+                                                                        </div>
+                                                                        <div class="column-right">
+                                                                            <a href="" class="toggle-expand"><i class="material-icons"></i></a>
+                                                                            <div class="content-chart">
+                                                                                <div class="text">{{ libro.correctAnswers }}/{{ libro.correctAnswers }} respuestas correctas</div>
+                                                                                <div class="progress-bar">
+                                                                                    <div class="percent green" style="width:calc(40% - 4px)">
+                                                                                        <span>{{ libro.percent }}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-content">
+                                                                <ul class="results-items"
+                                                                ng-repeat="question in libro.questions">
+                                                                    <li>
+                                                                      <strong>{{ question.question }}
+                                                                       <div ng-show="!question.correct" class="circle-icon incorrect small">
+                                                                         <i class="material-icons">clear</i>
+                                                                       </div>
+                                                                       <div ng-show="question.correct" class="circle-icon correct small">
+                                                                         <i class="material-icons">done</i>
+                                                                       </div>
+                                                                     </strong>
+                                                                     </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Fin acordion interno -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </md-content>
+                                </md-tab>
+                            </md-tabs>
+                        </md-content>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#">Terminos y condiciones</a> |</li>
+                <li><a href="#">Preguntas frecuentes</a> |</li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
