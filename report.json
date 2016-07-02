@@ -1,0 +1,17 @@
+{
+  "report": {
+    "geolocation": "52.123, 12.123",
+    "description": "description",
+    "needs": [
+      "coat",
+      "food",
+      "clothes"
+    ],
+    "persons": [
+      {
+        "gender": "F",
+        "age-range": "child"
+      }
+    ]
+  }
+}
